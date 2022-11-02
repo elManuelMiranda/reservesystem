@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Client;
 
 class ClientController extends Controller
 {
@@ -13,7 +14,12 @@ class ClientController extends Controller
      */
     public function index()
     {
-        //
+        echo "HOLA";
+    }
+
+    public function show($id)
+    {
+        echo $id;
     }
 
     /**
@@ -23,7 +29,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        return view("create_client");
     }
 
     /**
@@ -34,7 +40,9 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $client = Client::create($request->all());
+        return $client;
+        
     }
 
     /**
@@ -43,10 +51,6 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
